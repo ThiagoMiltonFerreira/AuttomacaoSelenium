@@ -2,6 +2,8 @@ package br.ce.wcaquino.core;
 
 import static br.ce.wcaquino.core.DriverFactory.getDriver;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -244,5 +246,43 @@ public class BasePage {
 			}
 		}
 		return idColuna;
+	}
+	public String getdataFutura() {
+        // Obtém a data atual
+        LocalDate dataAtual = LocalDate.now();
+        
+        LocalDate proximoDia = dataAtual.plusDays(1);
+
+        // Define o formato desejado
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        // Formata a data no formato especificado
+        String dataFormatada = proximoDia.format(formato);
+        return dataFormatada;
+	}
+	
+	public String getdataAnterior() {
+        // Obtém a data atual
+        LocalDate dataAtual = LocalDate.now();
+        
+        LocalDate proximoDia = dataAtual.plusDays(-1);
+
+        // Define o formato desejado
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        // Formata a data no formato especificado
+        String dataFormatada = proximoDia.format(formato);
+        return dataFormatada;
+	}
+	public String getdataAtual() {
+        // Obtém a data atual
+        LocalDate dataAtual = LocalDate.now();
+
+        // Define o formato desejado
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        // Formata a data no formato especificado
+        String dataFormatada = dataAtual.format(formato);
+        return dataFormatada;
 	}
 }

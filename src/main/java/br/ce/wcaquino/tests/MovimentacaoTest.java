@@ -1,5 +1,7 @@
 package br.ce.wcaquino.tests;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,4 +41,24 @@ public class MovimentacaoTest extends BaseTest {
 		Assert.assertEquals(6, erros.size());
 	}
 
+	@Test
+	public void testInserirMovimentacaoFutura() {
+//			Data de movimentação deve ser menor ou igual a data atual
+				
+			menuPage.acessarTelaMovimentacao();
+			movimentacao.setDataMovimentacao(movimentacao.getdataFutura());
+			movimentacao.setDataPagamento(movimentacao.getdataAtual());
+			movimentacao.setDescricao("Movimentaçao teste");
+			movimentacao.setInteressado("Interessado teste");
+			movimentacao.setValor("500");
+			movimentacao.setConta("Conta do combo");
+			movimentacao.setStatusPago();
+			movimentacao.salvar();
+			
+			List<String> erros = movimentacao.ObterErros();
+			Assert.assertTrue(erros.containsAll(Arrays.asList("Data da Movimentação deve ser menor ou igual à data atual")));			
+			
+			Assert.assertEquals(1, erros.size());
+
+	}
 }
