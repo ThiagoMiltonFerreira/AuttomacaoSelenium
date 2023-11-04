@@ -1,7 +1,5 @@
 package br.ce.wcaquino.tests;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Assert;
 import org.junit.Test;
 
