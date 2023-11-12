@@ -5,13 +5,16 @@ import org.junit.Test;
 
 import br.ce.wcaquino.core.BaseTest;
 import br.ce.wcaquino.pages.HomePage;
+import br.ce.wcaquino.pages.MenuPage;
 
 public class SaldoTest extends BaseTest {
     //Testes da tela home
 	HomePage homePage  = new HomePage();
+	MenuPage menuPage = new MenuPage();
 	@Test
 	public void validarSaldo() {
-		Assert.assertEquals("Conta do combo 2500.00", homePage.obterConta("Conta do combo", "2500.00"));
+		menuPage.acessarTelaHome();
+		Assert.assertEquals("Thiago72500.00", homePage.obterConta("Thiago7", "2500.00"));
 		
 	}
 	

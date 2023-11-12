@@ -1,16 +1,20 @@
 package br.ce.wcaquino.tests;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import br.ce.wcaquino.core.BaseTest;
 import br.ce.wcaquino.pages.MenuPage;
 import br.ce.wcaquino.pages.MovimentacaoPage;
+
+
+//Definir ordem de execução dos metodos por ordem alfabetica (NAME_ASCENDING)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class MovimentacaoTest extends BaseTest {
 	
@@ -18,14 +22,14 @@ public class MovimentacaoTest extends BaseTest {
 	private MovimentacaoPage movimentacao = new MovimentacaoPage();
 	
 	@Test
-	public void testInserirMovimentacao() {
+	public void test1_InserirMovimentacao() {
 		menuPage.acessarTelaMovimentacao();
 		movimentacao.setDataMovimentacao(movimentacao.getdataAtual());
 		movimentacao.setDataPagamento(movimentacao.getdataAtual());
 		movimentacao.setDescricao("Movimentaçao teste");
 		movimentacao.setInteressado("Interessado teste");
-		movimentacao.setValor("500");
-		movimentacao.setConta("Conta do combo");
+		movimentacao.setValor("2500.00");
+		movimentacao.setConta("Thiago7");
 		movimentacao.setStatusPago();
 		movimentacao.salvar();
 		
@@ -33,7 +37,7 @@ public class MovimentacaoTest extends BaseTest {
 	}
 	
 	@Test
-	public void testCamposObrigatorios() {
+	public void test2_CamposObrigatorios() {
 		menuPage.acessarTelaMovimentacao();
 		movimentacao.salvar();
 		List<String> erros = movimentacao.ObterErros();
@@ -42,16 +46,16 @@ public class MovimentacaoTest extends BaseTest {
 	}
 
 	@Test
-	public void testInserirMovimentacaoFutura() {
+	public void test3_InserirMovimentacaoFutura() {
 //			Data de movimentação deve ser menor ou igual a data atual
 				
 			menuPage.acessarTelaMovimentacao();
 			movimentacao.setDataMovimentacao(movimentacao.getdataFutura());
 			movimentacao.setDataPagamento(movimentacao.getdataAtual());
-			movimentacao.setDescricao("Movimentaçao teste");
+			movimentacao.setDescricao("Movimentaçao Futura");
 			movimentacao.setInteressado("Interessado teste");
 			movimentacao.setValor("500");
-			movimentacao.setConta("Conta do combo");
+			movimentacao.setConta("Thiago7");
 			movimentacao.setStatusPago();
 			movimentacao.salvar();
 			

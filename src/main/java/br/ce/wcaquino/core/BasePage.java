@@ -207,7 +207,7 @@ public class BasePage {
 		
 	}
 	public WebElement obterCelula(String colunaBusca, String valor, String colunaBotao, String idTabela){
-		System.out.println(idTabela);
+
 		//procurar coluna do registro
 		WebElement tabela = getDriver().findElement(By.xpath("//*[@id='"+idTabela+"']"));
 		int idColuna = obterIndiceColuna(colunaBusca, tabela);

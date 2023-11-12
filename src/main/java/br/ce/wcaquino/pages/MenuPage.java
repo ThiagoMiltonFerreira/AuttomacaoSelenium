@@ -4,6 +4,9 @@ import br.ce.wcaquino.core.BasePage;
 
 public class MenuPage extends BasePage {
 
+	public void acessarTelaHome(){
+		clicarLink("Home");
+	}
 	public void acessarTelaInserirConta(){
 		clicarLink("Contas");
 		clicarLink("Adicionar");

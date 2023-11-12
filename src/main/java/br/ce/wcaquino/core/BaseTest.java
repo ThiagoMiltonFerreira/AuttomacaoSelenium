@@ -23,14 +23,6 @@ public class BaseTest {
 	@Rule
 	public TestName testName = new TestName();
 	
-	@Before
-	public void inicializa() {
-		page.acessarTelaInicial();
-		page.setEmail("thiagomilton.f@g.com");
-		page.setSenha("30081996");
-		page.entrar();
-	}
-	
 	@After
 	public void finaliza() throws IOException{
 		TakesScreenshot ss = (TakesScreenshot) getDriver();
